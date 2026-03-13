@@ -80,6 +80,14 @@ body {
     gap: 20px;
 }
 
+.get-in-touch,
+.browse-my-work button {
+    color: #fff;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(213, 218, 219, 0.1),
+            transparent);
+}
 .text-gray {
     color: rgba(169, 169, 169, 0.824);
 }
@@ -90,10 +98,6 @@ body {
     gap: 20px;
     width: 100%;
     justify-content: center;
-}
-
-.introduction-left-top i {
-    font-size: 20px;
 }
 
 .introduction-left-bottom {
@@ -120,7 +124,7 @@ body {
     color: rgba(255, 255, 255, 0.84);
 }
 
-.icon {
+.hover-effect {
     cursor: pointer;
     border: 2px solid transparent;
     background-clip: padding-box;
@@ -129,13 +133,12 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.icon:hover {
+.hover-effect:hover {
+    /* will-change: transform; */
     border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
 }
 
-.get-in-touch,
-.browse-my-work button {
+.btn-hover {
     cursor: pointer;
     border: 2px solid transparent;
     background-clip: padding-box;
@@ -144,10 +147,9 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.get-in-touch:hover,
-.browse-my-work button:hover {
+.btn-hover:hover {
     border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
 }
 
 .introduction-right {
@@ -243,7 +245,6 @@ body {
 
 .browse-my-work button:hover {
     border-width: 3px;
-    transition: all ease-in-out 0.2s;
 }
 
 .browse-my-work h2 {
@@ -275,8 +276,9 @@ body {
 }
 
 .card:hover {
+    will-change: transform;
     transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .card img {
@@ -357,19 +359,7 @@ body {
     gap: 20px;
 }
 
-.footer span i {
-    cursor: pointer;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 12px;
-    padding: 6px;
-    transition: all 0.2s ease-in-out;
-}
 
-.footer span i:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
 
 .footer-copyright {
     display: flex;
