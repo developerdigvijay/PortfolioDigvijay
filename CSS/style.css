@@ -47,6 +47,7 @@ body {
 .introduction-container h1 {
     font-size: 42px;
     text-align: center;
+    line-height: 1.2;
 }
 
 .introduction-left,
@@ -95,6 +96,10 @@ body {
     gap: 20px;
 }
 
+.introduction-left-top-left h2 {
+    line-height: 1.25;
+}
+
 .get-in-touch,
 .browse-my-work .browse-link {
     color: #fff;
@@ -108,6 +113,7 @@ body {
 .icon {
     color: #fff;
     font-size: 1.25rem;
+    text-decoration: none;
 }
 
 a:focus-visible {
@@ -143,11 +149,13 @@ a:focus-visible {
 
 .introduction-left-bottom h2 {
     font-size: 32px;
+    line-height: 1.2;
 }
 
 .introduction-left-bottom p {
     font-size: 18px;
     color: rgba(169, 169, 169, 0.824);
+    line-height: 1.5;
 }
 
 .timeless {
@@ -171,12 +179,30 @@ a:focus-visible {
 }
 
 .btn-hover {
+    /* width: 100px; */
     cursor: pointer;
     border: 2px solid transparent;
     background-clip: padding-box;
     border-radius: 12px;
-    padding: 6px;
+    padding: 8px 3px;
     transition: all 0.2s ease-in-out;
+}
+
+.futuristic-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 180px;
+    padding: 14px 18px;
+
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+.futuristic-btn i {
+    flex-shrink: 0;
 }
 
 .btn-hover:hover {
@@ -210,36 +236,68 @@ a:focus-visible {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 24px;
+}
+
+.worked-with-text p {
+    margin-bottom: 4px;
+}
+
+.worked-with-text h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+}
+
+.worked-with-services {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 20px;
 }
 
-.worked-with-logos {
-    width: 100%;
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 250px;
+    padding: 24px;
     background: rgba(17, 21, 24, 0.72);
     border: 1px solid var(--border);
     border-radius: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    gap: 20px;
 }
 
-.worked-with-logos span {
+.service-number {
+    color: var(--accent);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.service-description {
+    color: var(--text-muted);
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    list-style: none;
+}
+
+.service-tags li {
+    padding: 5px 10px;
     color: var(--accent);
     background: rgba(168, 230, 204, 0.06);
     border: 1px solid rgba(168, 230, 204, 0.15);
     border-radius: 999px;
-    padding: 10px 16px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.worked-with-logos span:hover {
-    opacity: 1;
-    cursor: default;
+    font-size: 13px;
 }
 
 .browse-my-work {
@@ -438,6 +496,7 @@ a:focus-visible {
 
 .footer span a {
     color: #fff;
+    text-decoration: none;
 }
 
 
