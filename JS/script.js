@@ -2,6 +2,78 @@ const particlePool = [];
 const maxParticles = 50;
 let lastTime = 0;
 
+const menuToggle = document.querySelector('.site-nav__toggle');
+const navLinks = document.querySelector('.site-nav__links');
+
+function setNavigationOpen(isOpen) {
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    navLinks.classList.toggle('is-open', isOpen);
+}
+
+const navigationAnchors = document.querySelectorAll('.site-nav a[href^="#"]');
+
+menuToggle.addEventListener('click', () => {
+    setNavigationOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+});
+
+navigationAnchors.forEach(link => {
+    link.addEventListener('click', () => {
+        const wasOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        setNavigationOpen(false);
+        setCurrentNavigation(link.hash.slice(1));
+        if (wasOpen && window.innerWidth < 768) {
+            window.requestAnimationFrame(() => menuToggle.focus());
+        }
+    });
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        setNavigationOpen(false);
+        menuToggle.focus();
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && menuToggle.getAttribute('aria-expanded') === 'true') {
+        setNavigationOpen(false);
+    }
+});
+
+const navigationSections = document.querySelectorAll('#home, #services, #projects, #contact');
+
+function setCurrentNavigation(sectionId) {
+    navigationAnchors.forEach(link => {
+        if (link.hash === `#${sectionId}`) {
+            link.setAttribute('aria-current', 'location');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+
+function updateCurrentNavigation() {
+    let activeSectionId = navigationSections[0].id;
+    const activeLine = window.innerHeight * 0.3;
+
+    navigationSections.forEach(section => {
+        if (section.getBoundingClientRect().top <= activeLine) {
+            activeSectionId = section.id;
+        }
+    });
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        activeSectionId = navigationSections[navigationSections.length - 1].id;
+    }
+
+    setCurrentNavigation(activeSectionId);
+}
+
+window.addEventListener('scroll', updateCurrentNavigation, { passive: true });
+window.addEventListener('resize', updateCurrentNavigation);
+updateCurrentNavigation();
+
 function createParticle() {
     if (particlePool.length >= maxParticles) return;
 

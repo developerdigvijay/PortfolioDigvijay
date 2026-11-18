@@ -13,7 +13,27 @@
 </head>
 
 <body>
-  <div class="introduction-container">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="site-nav__brand" href="#home" aria-label="Digvijay home">
+        <span class="site-nav__brand-mark" aria-hidden="true"></span>
+        <span>Digvijay</span>
+      </a>
+      <button class="site-nav__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="site-nav__links" id="primary-navigation">
+        <a class="site-nav__link" href="#services">Services</a>
+        <a class="site-nav__link" href="#projects">Work</a>
+        <a class="site-nav__link site-nav__contact" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="introduction-container" id="home">
     <div class="introduction-left">
       <div class="introduction-left-top">
         <div class="introduction-left-top-left">
@@ -60,7 +80,7 @@
     </div>
   </div>
 
-  <section class="worked-with" aria-labelledby="services-title">
+  <section class="worked-with" id="services" aria-labelledby="services-title">
     <div class="worked-with-text">
       <p class="text-gray">What I build</p>
       <h2 id="services-title">Services</h2>
